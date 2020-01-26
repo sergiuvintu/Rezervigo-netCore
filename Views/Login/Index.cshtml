@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center">
+    <h3 class="p-1">Welcome to Rezervigo, Please confirm your identity</h3>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            @if (TempData["error"] != null)
+            {
+                <div class="alert alert-danger">@TempData["error"]</div>
+            }
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="~/images/user-shield-solid.svg" id="icon" alt="User Icon" />
+            </div>
+
+            <!-- Login Form -->
+            <form asp-controller="Login" asp-action="PostLogin" method="POST">
+                <input type="text" id="login" class="fadeIn second" name="loginUsername" placeholder="Username" required>
+                <input type="text" id="password" class="fadeIn third" name="loginPassword" placeholder="Password" required>
+                <input type="submit" name="login" class="fadeIn fourth" value="Log In" required>
+            </form>
+
+        </div>
+    </div>
+</div>
